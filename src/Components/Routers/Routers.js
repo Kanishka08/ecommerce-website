@@ -1,5 +1,6 @@
 import ProductList from "../Products/ProductList";
 import About from "../Layout/About";
+import Home from "../Layout/Home";
 import { Route, Routes } from "react-router-dom";
 
 const routePath = {
@@ -9,13 +10,15 @@ const routePath = {
 };
 
 const Routers = () => {
-  return <div>
-    <Routes>
-        <Route path ={routePath.Home} element={<ProductList />} />
-        <Route path ={routePath.Store} element={<ProductList />} />
-        <Route path ={routePath.About} element={<About />} />
-    </Routes>
-  </div>;
+  return (
+    <div>
+      <Routes>
+        <Route path={routePath.Home} element={<Home />} />
+        <Route path={routePath.Store} element={<ProductList />} />
+        <Route path={routePath.About} element={<About />} />
+      </Routes>
+    </div>
+  );
 };
 
 export default Routers;
