@@ -1,7 +1,9 @@
 import { useState, useContext } from "react";
-import { Container, Navbar, Nav, Button } from "react-bootstrap";
+import { Button } from "react-bootstrap";
+import { Link } from "react-router-dom";
 import Cart from "../Cart/Cart";
 import CartContext from "../Store/CartContext";
+import "./Header.css";
 
 const Header = () => {
   const [showCart, setShowCart] = useState(false);
@@ -13,29 +15,30 @@ const Header = () => {
   const cartCtx = useContext(CartContext);
 
   //calculating total quantity in cart
-  let totalAmount = 0
-  cartCtx.items.map((item) => (
-    totalAmount += item.quantity
-  ))
+  let totalAmount = 0;
+  cartCtx.items.map((item) => (totalAmount += item.quantity));
 
   return (
-    <header>
-      <Navbar expand="lg" className="bg-body-tertiary">
-        <Container>
-          <Navbar.Brand href="/">My E-commerce Website</Navbar.Brand>
-          <Navbar.Toggle aria-controls="basic-navbar-nav" />
-          <Navbar.Collapse id="basic-navbar-nav">
-            <Nav className="me-auto">
-              <Nav.Link href="/">Home</Nav.Link>
-              <Nav.Link href="store">Store</Nav.Link>
-              <Nav.Link href="about">About</Nav.Link>
-            </Nav>
-          </Navbar.Collapse>
-        </Container>
-        <Button onClick={showCartHandler}>Cart ({totalAmount})</Button>
-      </Navbar>
-      {showCart && <Cart showCartHandler={showCartHandler}></Cart>}
-    </header>
+    <div className="navbar">
+      <header className="header">
+        <div className="links">
+          <Link to="/">Home</Link>
+        </div>
+        <div className="links">
+          <Link to="/store">Store</Link>
+        </div>
+        <div className="links">
+          <Link to="/about">About</Link>
+        </div>
+
+        <Button className="cart-holder" onClick={showCartHandler}>
+          Cart ({totalAmount})
+        </Button>
+
+        {showCart && <Cart showCartHandler={showCartHandler}></Cart>}
+      </header>
+      <h1>The Generics</h1>
+    </div>
   );
 };
 
