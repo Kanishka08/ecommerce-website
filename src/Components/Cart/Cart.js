@@ -9,15 +9,11 @@ const Cart = ({ showCartHandler }) => {
   //calculate total price
   let totalPrice = 0;
   cartCtx.items.map(
-    (item) => (totalPrice += Number(item.quantity) * Number(item.price))
+    (item) => (totalPrice += Number(item.items.quantity) * Number(item.items.price))
   );
 
   return (
-    <section
-      id="cart"
-      className="container"
-      style={{ zIndex: 1000, position: "absolute" }}
-    >
+    <section id="cart" className="container">
       <h2>CART</h2>
       <button className="cancel" onClick={showCartHandler}>
         X
