@@ -4,6 +4,7 @@ import Home from "../Layout/Home";
 import ContactUs from "../Layout/ContactUs";
 import { Route, Routes } from "react-router-dom";
 import ProductPage from "../Products/ProductPage";
+import AuthForm from "../Auth/AuthForm";
 
 export const routePath = {
   Home: "/",
@@ -11,6 +12,7 @@ export const routePath = {
   About: "/about",
   ContactUs: "/contact-us",
   ProductPage: "/store/product",
+  Login: "/login",
 };
 
 const Routers = () => {
@@ -21,6 +23,7 @@ const Routers = () => {
         <Route path={routePath.Store} element={<ProductList />} />
         <Route path={routePath.ProductPage} element={<ProductPage />} />
         <Route path={routePath.About} element={<About />} />
+        <Route path={routePath.Login} element={<AuthForm />} />
         <Route path={routePath.ContactUs} element={<ContactUs />} />
       </Routes>
     </div>
